@@ -104,3 +104,5 @@ hist(bootexp2)
 # and histogram that shows the ORIGINAL exponential distribution structure
 hist(x4)
 ```
+
+## Conclusion - in the normal distribution, since it is not skewed, even when the sample size is small, the bootstrap method bring us to non-skewed, normal sytle distribution (let alone, with a large sample). In the exponential distribution, since it is skewed, the more the sample is big, the less skewed the bootstrap will.
