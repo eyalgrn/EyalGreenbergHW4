@@ -1,0 +1,106 @@
+---
+title: "EyalGreenbergHW4"
+author: "Eyal Greenberg"
+date: "June 4, 2016"
+output: html_document
+---
+## First sample of n=100 normal distribution
+```{r}
+# Create a normal distribution vector of 100 parameters (n=100), with mean=30 and sd=3
+x1 <- rnorm(100, 30, 3)
+# Define the bootstrap iterations to be 1000
+n1 <- 1000
+# Define the bootnorm to be a numeric vector of n zeros (1000)
+bootnorm1 <- numeric(n1)
+# Creating the loop
+for (i in 1:n1) {
+  tempnorm1 <- sample(x1, 100, replace=T)
+  bootnorm1[i] <- mean(tempnorm1)
+}
+# demonstrate that the means are close to each other (central limit theorem)
+mean(x1)
+mean(bootnorm1)
+# demonstrate that the sample standard deviation equals to population sd divided by suqare root of n, and therefore the central limit theorem 
+sd(x1)
+sd(bootnorm1)
+sd(x1)/sqrt(100)
+# also, histogram that shows a normal distribution structure
+hist(bootnorm1)
+```
+
+## Second sample of n=500 normal distribution
+```{r}
+# Create a normal distribution vector of 500 parameters (n=500), with mean=20 and sd=5
+x2 <- rnorm(500, 20, 5)
+# Define the bootstrap iterations to be 5000
+n2 <- 5000
+# Define the bootnorm to be a numeric vector of n zeros (5000)
+bootnorm2 <- numeric(n2)
+# Creating the loop
+for (i in 1:n2) {
+  tempnorm2 <- sample(x2, 500, replace=T)
+  bootnorm2[i] <- mean(tempnorm2)
+}
+# demonstrate that the means are close to each other (central limit theorem)
+mean(x2)
+mean(bootnorm2)
+# demonstrate that the sample standard deviation equals to population sd divided by suqare root of n, and therefore the central limit theorem 
+sd(x2)
+sd(bootnorm2)
+sd(x2)/sqrt(500)
+# also, histogram that shows a normal distribution structure
+hist(bootnorm2)
+```
+
+## third sample of n=100 exponentioal distribution
+```{r}
+# Create an exponential distribution vector of 100 parameters (n=100), with mean=50
+x3 <- rexp(100, 50)
+# Define the bootstrap iterations to be 1000
+n3 <- 1000
+# Define the bootnorm to be a numeric vector of n zeros (1000)
+bootexp1 <- numeric(n3)
+# Creating the loop
+for (i in 1:n3) {
+  tempexp1 <- sample(x3, 100, replace=T)
+  bootexp1[i] <- mean(tempexp1)
+}
+# demonstrate that the means are close to each other (central limit theorem)
+mean(x3)
+mean(bootexp1)
+# demonstrate that the sample standard deviation equals to population sd divided by suqare root of n, and therefore the central limit theorem 
+sd(x3)
+sd(bootexp1)
+sd(x3)/sqrt(100)
+# also, histogram that shows a normal distribution structure
+hist(bootexp1)
+# and histogram that shows the ORIGINAL exponential distribution structure
+hist(x3)
+```
+
+
+## forth sample of n=400 exponentioal distribution
+```{r}
+# Create an exponential distribution vector of 400 parameters (n=400), with mean=40
+x4 <- rexp(400, 40)
+# Define the bootstrap iterations to be 5000
+n4 <- 5000
+# Define the bootnorm to be a numeric vector of n zeros (5000)
+bootexp2 <- numeric(n4)
+# Creating the loop
+for (i in 1:n4) {
+  tempexp2 <- sample(x4, 400, replace=T)
+  bootexp2[i] <- mean(tempexp2)
+}
+# demonstrate that the means are close to each other (central limit theorem)
+mean(x4)
+mean(bootexp2)
+# demonstrate that the sample standard deviation equals to population sd divided by suqare root of n, and therefore the central limit theorem 
+sd(x4)
+sd(bootexp2)
+sd(x4)/sqrt(400)
+# also, histogram that shows a normal distribution structure
+hist(bootexp2)
+# and histogram that shows the ORIGINAL exponential distribution structure
+hist(x4)
+```
